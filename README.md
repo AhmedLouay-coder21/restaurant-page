@@ -1,2 +1,2 @@
 # restaurant-page
-This project is a restaurant site impelmented to implement some core concepts in javascript: Classes, ES, Modules, npm and Webpack.,
+This project is a restaurant site made to implement some core concepts in javascript: Classes, ES6 Modules, npm and Webpack.,
