@@ -1,6 +1,7 @@
 import "./styles.css";
 import background from './background.jpg'
 
+const content = document.getElementById("content");
 class Dish {
     constructor(name, description, price, category = 'main') {
         this.name = name;
@@ -110,7 +111,7 @@ function appendContent() {
     bg.src = background;
     bg.style.width = "100%";
     bg.style.height = "10%";
-    bg.style.maxHeight = "700px";
+    bg.style.maxHeight = "800px";
     bg.style.filter = "brightness(60%)";
 
     img1.src = "https://media.istockphoto.com/id/1442417585/photo/person-getting-a-piece-of-cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=k60TjxKIOIxJpd4F4yLMVjsniB4W1BpEV4Mi_nb4uJU=";
@@ -131,34 +132,79 @@ function appendContent() {
     img3.style.minHeight = "500px";
     img3.style.minWidth = "650px";
     
-    const section1Image = document.getElementById("section1Image");
-    const section1Text = document.getElementById("section1Text");
+    const sections = document.createElement("div");
+    const section1 = document.createElement("div");
+    const section2 = document.createElement("div");
+    const section3 = document.createElement("div");
 
-    const section2Image = document.getElementById("section2Image");
-    const section2Text = document.getElementById("section2Text");
+    sections.id = "sections";
+    section1.id = "section1";
+    section2.id = "section2";
+    section3.id = "section3";
 
-    const section3Image = document.getElementById("section3Image");
-    const section3Text = document.getElementById("section3Text");
+    const section1Image = document.createElement("div");
+    const section1Text = document.createElement("div");
 
-    const header = document.getElementById("header");
+    const section2Image = document.createElement("div");
+    const section2Text = document.createElement("div");
 
-    const about_us_img = document.getElementById("about_us_img");
-    const about_us_text = document.getElementById("about_us_text");
+    const section3Image = document.createElement("div");
+    const section3Text = document.createElement("div");
 
-    header.prepend(img);
+    section1Text.id = "section1Text";
+    section1Image.id = "section1Image";
+
+    section2Text.id = "section2Text";
+    section2Image.id = "section2Image";
+
+    section3Text.id = "section3Text";
+    section3Image.id = "section3Image";
+
+    const header_img = document.getElementById("header_img");
+    header_img.innerHTML = "";
+
+    const about_us_img = document.createElement("div");
+    const about_us_text = document.createElement("div");
+    const about_us_html = document.createElement("div");
+
+    about_us_img.id = "about_us_img";
+    about_us_text.id = "about_us_text";
+    about_us_html.id = "about_us";
+
+    about_us_html.appendChild(about_us_text);
+    about_us_html.appendChild(about_us_img);
+
+    header_img.prepend(img);
 
     about_us_img.append(bg);
     about_us_text.append(about_us_header);
     about_us_text.append(about_us);
 
     section1Image.appendChild(img1);
-    section1Text.appendChild(dish1Element); // Using dish class instead of text1
+    section1Text.appendChild(dish1Element);
 
     section2Image.appendChild(img2);
-    section2Text.appendChild(dish2Element); // Using dish class instead of text2
+    section2Text.style.marginRight = "10%";
+    section2Text.appendChild(dish2Element);
 
     section3Image.appendChild(img3);
-    section3Text.appendChild(dish3Element); // Using dish class instead of text3
+    section3Text.appendChild(dish3Element);
+
+    section1.append(section1Text);
+    section1.append(section1Image);
+
+    section2.append(section2Image);
+    section2.append(section2Text);
+
+    section3.append(section3Text);
+    section3.append(section3Image);
+
+    sections.append(section1);
+    sections.append(section2);
+    sections.append(section3);
+
+    content.appendChild(about_us_html);
+    content.appendChild(sections);
 
     bg.onload = () => bg.classList.add('loaded');
     img1.onload = () => img1.classList.add('loaded');
@@ -169,7 +215,7 @@ function appendContent() {
         about_us_header.classList.add('loaded');
         about_us.classList.add('loaded');
         
-        // Add loaded class to dish elements
+
         dish1Element.querySelector('.dish-description').classList.add('loaded');
         dish1Element.querySelector('.dish-price').classList.add('loaded');
         dish1Element.querySelector('.dish-name')?.classList.add('loaded');
@@ -183,5 +229,33 @@ function appendContent() {
         dish3Element.querySelector('.dish-name')?.classList.add('loaded');
     }, 900);
 }
-
 appendContent();
+function setupNavigation() {
+    const menuButton = document.getElementById("Menu");
+    const homeButton = document.getElementById("Home");
+    const dishesButton = document.getElementById("Dishes");
+    const specialsButton = document.getElementById("Specials");
+
+    menuButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        content.innerHTML = "";
+    });
+
+
+    homeButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        content.innerHTML = "";
+        appendContent();
+    });
+
+    dishesButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        content.innerHTML = "";
+    });
+
+    specialsButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        content.innerHTML = "";
+    });
+}
+setupNavigation();

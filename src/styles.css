@@ -6,6 +6,12 @@ body, html
     background-color: black;
     color: white;
     font-family: 'Courier New', Courier, monospace;
+    overflow-x: hidden;
+}
+body
+{
+    width: 200vh;
+    height: 100%;
 }
 header
 {
@@ -21,6 +27,25 @@ nav
     align-items: center;
     justify-content: center;
     gap: 50px;
+}
+#buttons
+{
+    display: flex;
+    gap: 50px;
+    align-content: center;
+    justify-content: space-evenly;
+}
+button
+{
+    display: flex;
+    min-height: 50px;
+    width: 50%;
+    min-width: 100px;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    background-color: #131313;
+    color: orange;
 }
 #content
 {
