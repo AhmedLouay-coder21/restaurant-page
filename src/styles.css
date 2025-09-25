@@ -1,0 +1,126 @@
+body, html
+{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+header
+{
+    display: flex;
+    background-color: #131313;
+    padding: 20px 20px;
+    align-items: center;
+    font-size: larger;
+}
+nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+#content
+{
+    display: flex;
+    flex-direction: column;
+}
+#section1 , #section2, #section3
+{
+    display: flex;
+    font-size: larger;
+}
+#section1Image , #section2Image , #section3Images
+{
+    display: flex;
+    flex-shrink: 1;
+}
+#section1
+{
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-left: 1%;
+    gap: 70px;
+}
+#section2
+{
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 1%;
+    gap: 70px;
+    background-color: rgb(29, 28, 28);
+}
+#section3
+{
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-left: 1%;
+    gap: 70px;
+}
+#about_us
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about_us_img
+{
+    position: relative;
+    width: 100%;
+}
+
+#about_us_text
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+#about_us_text h1
+{
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#about_us_text p
+{
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+#section1Image img, #section2Image img, #section3Image img, #about_us_img img, #about_us_text h1, #about_us_text p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+#section1Image img.loaded, #section2Image img.loaded, #section3Image img.loaded, #about_us_img img.loaded, #about_us_text h1.loaded,  #about_us_text p.loaded{
+    opacity: 1;
+    transform: translateY(0);
+}
+#section1Text p, #section2Text p, #section3Text p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+#section1Text p.loaded, #section2Text p.loaded, #section3Text p.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#sections {
+    opacity: 1;
+    transform: translateY(0);
+}
