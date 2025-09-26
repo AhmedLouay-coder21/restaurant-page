@@ -46,6 +46,7 @@ button
     gap: 50px;
     background-color: #131313;
     color: orange;
+    border-radius: 20px;
 }
 #content
 {
@@ -66,7 +67,7 @@ button
 {
     justify-content: flex-end;
     align-items: flex-start;
-    margin-left: 1%;
+    margin-left: 5%;
     gap: 70px;
 }
 #section2
@@ -81,7 +82,7 @@ button
 {
     justify-content: flex-end;
     align-items: flex-start;
-    margin-left: 1%;
+    margin-left: 5%;
     gap: 70px;
 }
 #about_us
@@ -148,4 +149,32 @@ button
 #sections {
     opacity: 1;
     transform: translateY(0);
+}
+#menuDishes
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 30px;
+}
+.dish-name
+{
+    text-align: center;
+}
+.dish-price, .dish-description, .dish-name
+{
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+.dish-price
+{
+    font-size: larger;
+}
+.dish-image
+{
+    height: 50%;
+    width: 40%;
+    min-height: 500px;
+    min-width: 650px;
 }
