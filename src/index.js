@@ -77,6 +77,7 @@ function appendContent() {
 
     //about us section
     const bg = document.createElement("img");
+    bg.id = "bg";
     const about_us_header = document.createElement("h1");
     const about_us = document.createElement("p");
 
@@ -98,29 +99,16 @@ function appendContent() {
     img.style.height = "150px";
 
     bg.src = background;
-    bg.style.width = "100%";
-    bg.style.height = "10%";
-    bg.style.maxHeight = "800px";
-    bg.style.filter = "brightness(60%)";
 
     img1.src = "https://media.istockphoto.com/id/1442417585/photo/person-getting-a-piece-of-cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=k60TjxKIOIxJpd4F4yLMVjsniB4W1BpEV4Mi_nb4uJU=";
-    img1.style.height = "50%";
-    img1.style.width = "40%";
-    img1.style.minHeight = "500px";
-    img1.style.minWidth = "650px";
+    img1.className = "dish-image";
 
     img2.src = "https://www.sargento.com/assets/Uploads/Recipe/Image/cheddarbaconcheeseburger__FocusFillWyIwLjAwIiwiMC4wMCIsODAwLDQ3OF0_CompressedW10.jpg";
-    img2.style.height = "50%";
-    img2.style.width = "40%";
-    img2.style.minHeight = "500px";
-    img2.style.minWidth = "650px";
+    img2.className = "dish-image";
 
     img3.src = "https://s3-eu-west-1.amazonaws.com/elmenusv5-stg/Normal/bef6ab8a-1288-4dea-9869-95a00b1a6bf8.jpg";
-    img3.style.height = "50%";
-    img3.style.width = "40%";
-    img3.style.minHeight = "500px";
-    img3.style.minWidth = "650px";
-    
+    img3.className = "dish-image";
+
     const sections = document.createElement("div");
     const section1 = document.createElement("div");
     const section2 = document.createElement("div");
