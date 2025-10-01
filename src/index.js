@@ -3,12 +3,13 @@ import background from './background.jpg'
 
 const content = document.getElementById("content");
 class Dish {
-  constructor(name, description, price, category = 'main', image = '') {
+  constructor(name, description, price, category = 'main', image = '', type) {
     this.name = name;
     this.description = description;
     this.price = price;
     this.category = category;
     this.image = image;
+    this.type = type;
   }
 
   getFormattedPrice() {
@@ -234,13 +235,73 @@ function setupNavigation() {
 setupNavigation();
 function addDishesToMenu()
 {
+    let type = "main";
+
+    //dishType is a section to make the customer select the dish type he wants to see
+    const dishType = document.createElement("div");
+    const mainDishesButton = document.createElement("button");
+    const dessertButton = document.createElement("button");
+
+    const hr = document.createElement("hr");
+
+    content.append(hr);
+
+    dishType.id = "dishType";
+    mainDishesButton.id = "mainDishesButton";
+    dessertButton.id = "dessertButton";
+
+    mainDishesButton.textContent = "Main dishes";
+    dessertButton.textContent = "Dessert";
+
+    content.appendChild(dishType);
+    dishType.appendChild(mainDishesButton);
+    dishType.appendChild(dessertButton);
+
     let color = true;
     const menuDishes = document.createElement("div");
     menuDishes.id = "menuDishes";
     content.appendChild(menuDishes);
-    //make a for loop that iterates over an array of dishes that contains every info of the dish
-    for(let i = 0; i < menu.dishes.length; i++)
+
+    function mainDishesButtonDisplay()
     {
+        //make a for loop that iterates over an array of dishes that contains every info of the dish
+        for(let i = 0; i < menu.dishes.length; i++)
+        {
+            //if the dish category is a main dish show it
+            if(menu.dishes[i].category == "main")
+            {
+            //for every dish make a card with black or grey background
+            const dishElement = menu.dishes[i].createElement();
+            dishElement.id = `dish${i}`;
+            // Alternate background colors
+            if (i % 3 == 0) {
+                dishElement.style.backgroundColor = "black";
+                dishElement.style.color = "white";
+            } else {
+                dishElement.style.backgroundColor = "#131313";
+                dishElement.style.color = "white";
+            }
+            dishElement.style.display = "flex";
+            dishElement.style.width = "40%";
+            dishElement.style.flexDirection = "column";
+            dishElement.textAlign = "center";
+            color = !color;
+            //append it to content
+            menuDishes.appendChild(dishElement);
+            //end if
+            }
+        }
+    }
+    mainDishesButtonDisplay();
+    //if the user clicked on the dessert button show him desserts only
+    dessertButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        menuDishes.innerHTML = "";
+        for(let i = 0; i < menu.dishes.length; i++)
+        {
+        //if the dish category is dessert show it
+        if(menu.dishes[i].category == "dessert")
+        {
         //for every dish make a card with black or grey background
         const dishElement = menu.dishes[i].createElement();
         dishElement.id = `dish${i}`;
@@ -259,8 +320,21 @@ function addDishesToMenu()
         color = !color;
         //append it to content
         menuDishes.appendChild(dishElement);
-    //end if
-    }
+        //end if
+        }
+        }
+        if(menuDishes.innerHTML == "")
+        {
+            const notFound = document.createElement("h1");
+            notFound.textContent = "No dishes found";
+            content.appendChild(notFound);
+        }
+    });
+    mainDishesButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        menuDishes.innerHTML = "";
+        mainDishesButtonDisplay();
+    });
 }
 //this function makes dishes and adds it to the menu
 function dishMaker() {
@@ -296,44 +370,55 @@ function dishMaker() {
             "main",
             "https://s3-eu-west-1.amazonaws.com/elmenusv5-stg/Normal/bef6ab8a-1288-4dea-9869-95a00b1a6bf8.jpg"
         );
-
+        const cheeseCake = new Dish(
+            "Mediterranean Chicken Wrap",
+            "Experience our Mediterranean-inspired chicken wrap, featuring tender grilled chicken breast marinated in aromatic herbs and spices. Wrapped in a soft flour tortilla with crisp lettuce, diced tomatoes, cucumber, red onions, and our signature garlic aioli sauce. The combination of fresh vegetables and perfectly seasoned chicken creates a harmonious blend of Mediterranean flavors that's both satisfying and refreshing. A healthy yet indulgent choice that transports your taste buds straight to the coast.",
+            11.99,
+            "dessert",
+            "https://img.freepik.com/free-photo/classic-cheesecake-with-strawberry-cherry-slices_140725-3241.jpg?t=st=1759328161~exp=1759331761~hmac=1aff669dc56d2bb9b3761739acf063c56569672f87344999ee7c3694a0bf7241&w=2000"
+        );
         // add all to menu
         menu.addDish(pepperoniPizza);
         menu.addDish(baconCheeseburger);
         menu.addDish(chickenWrap);
         menu.addDish(classicBurger);
+        menu.addDish(cheeseCake);
 
-        return [pepperoniPizza, baconCheeseburger, chickenWrap, classicBurger];
+        return menu.getAllDishes();
     }
 
     return menu.getAllDishes();
 }
 function contactUsPage() {
+    const contactUsImage = document.createElement("div");
     const contactUs = document.createElement("div");
     const contactUsTitle = document.createElement("h1");
     const contactUsBackground = document.createElement("img");
     const formTitle = document.createElement("h2");
     const contactUsForm = document.createElement("form");
 
+    contactUs.id = "contactUs";
+    contactUsImage.id = "contactUs"; 
     contactUsForm.id = "contactUsForm";
+    contactUsTitle.id = "contactUsTitle";
 
     // Title for the form
     formTitle.textContent = "Your Details";
 
     // Contact Us Text over the Background Image
     contactUsTitle.textContent = "Contact Us";
-    contactUsTitle.id = "contactUsTitle";
 
     contactUsBackground.src = "https://img.freepik.com/free-photo/frame-meat-vegetables_23-2148599848.jpg?t=st=1759186741~exp=1759190341~hmac=a2bcdbfb38b0a21777bdef0723fd0b20adb0fda3fd4236c6e0fac6bc15a01a01&w=1480";
     contactUsBackground.id = "contactUsBackground";
 
     // Append title + background
-    contactUs.appendChild(contactUsTitle);
-    contactUs.appendChild(contactUsBackground);
     content.appendChild(contactUs);
+    contactUsImage.appendChild(contactUsTitle);
+    contactUsImage.appendChild(contactUsBackground);
+    contactUs.appendChild(contactUsImage);
 
     // Append form to content
-    content.appendChild(contactUsForm);
+    contactUs.appendChild(contactUsForm);
     contactUsForm.appendChild(formTitle);
 
     const upperFormPart = document.createElement("div");

@@ -48,6 +48,13 @@ button
     color: orange;
     border-radius: 20px;
 }
+hr 
+{
+  border: none;
+  border-top: 3px solid orange;
+  margin: 0 auto;
+  width: 80%;
+}
 #content
 {
     display: flex;
@@ -246,4 +253,32 @@ input
 {
     text-align: start;
     height: 75px;
+}
+#contactUs
+{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #131313;
+  color: white;
+  margin-top: 5%;
+}
+#dishType
+{
+    display: flex;
+    background-color: black;
+    justify-content:center;
+    gap: 10%;
+}
+#mainDishesButton , #dessertButton
+{
+    width: 5%;
+    background-color: #131313;
+    color: orange;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
