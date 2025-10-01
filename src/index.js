@@ -189,11 +189,15 @@ function appendContent() {
     img2.onload = () => img2.classList.add('loaded');
     img3.onload = () => img3.classList.add('loaded');
 
-    setTimeout(() => {
+        setTimeout(() => {
         about_us_header.classList.add('loaded');
         about_us.classList.add('loaded');
         
-
+        // Add these lines to make the containers visible
+        dish1Element.classList.add('loaded');
+        dish2Element.classList.add('loaded');
+        dish3Element.classList.add('loaded');
+        
         dish1Element.querySelector('.dish-description').classList.add('loaded');
         dish1Element.querySelector('.dish-price').classList.add('loaded');
         dish1Element.querySelector('.dish-name')?.classList.add('loaded');
