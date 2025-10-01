@@ -288,6 +288,13 @@ function addDishesToMenu()
             color = !color;
             //append it to content
             menuDishes.appendChild(dishElement);
+            //adding same transition in home page to menu page
+            setTimeout(() => {
+            dishElement.classList.add('loaded');
+            dishElement.querySelector('.dish-name')?.classList.add('loaded');
+            dishElement.querySelector('.dish-description')?.classList.add('loaded');
+            dishElement.querySelector('.dish-price')?.classList.add('loaded');
+        }, 900);
             //end if
             }
         }
@@ -313,6 +320,7 @@ function addDishesToMenu()
             dishElement.style.backgroundColor = "#131313";
             dishElement.style.color = "white";
         }
+        
         dishElement.style.display = "flex";
         dishElement.style.width = "40%";
         dishElement.style.flexDirection = "column";
@@ -320,6 +328,14 @@ function addDishesToMenu()
         color = !color;
         //append it to content
         menuDishes.appendChild(dishElement);
+        //adding same transition in home page to menu page
+        setTimeout(() => {
+            dishElement.classList.add('loaded');
+            dishElement.querySelector('.dish-name')?.classList.add('loaded');
+            dishElement.querySelector('.dish-description')?.classList.add('loaded');
+            dishElement.querySelector('.dish-price')?.classList.add('loaded');
+        }, 900);
+
         //end if
         }
         }
@@ -335,14 +351,15 @@ function addDishesToMenu()
         menuDishes.innerHTML = "";
         mainDishesButtonDisplay();
     });
+
 }
 //this function makes dishes and adds it to the menu
 function dishMaker() {
     if (menu.dishes.length === 0) {
         const classicBurger = new Dish(
             "Classic Burger",
-            "Like cheese burger but classic",
-            5.99,
+            "Savor our classic gourmet beef burger, crafted with a juicy, flame-grilled beef patty nestled in a golden, sesame-seeded bun. Each bite is complemented by crisp green leaf lettuce, fresh-sliced tomatoes, and a layer of creamy cheese, delivering a satisfying crunch and rich, savory flavor. The burger is finished with a hint of shredded parmesan for an extra touch of indulgence. Perfectly balanced and packed with freshness, this burger offers a timeless taste experience that’s both hearty and delicious.",
+            8.99,
             "main",
             "https://img.freepik.com/free-photo/side-view-burger-with-beef-meat-melted-cheese-vegetables-wooden-board_140725-11865.jpg"
         );
@@ -371,9 +388,9 @@ function dishMaker() {
             "https://s3-eu-west-1.amazonaws.com/elmenusv5-stg/Normal/bef6ab8a-1288-4dea-9869-95a00b1a6bf8.jpg"
         );
         const cheeseCake = new Dish(
-            "Mediterranean Chicken Wrap",
-            "Experience our Mediterranean-inspired chicken wrap, featuring tender grilled chicken breast marinated in aromatic herbs and spices. Wrapped in a soft flour tortilla with crisp lettuce, diced tomatoes, cucumber, red onions, and our signature garlic aioli sauce. The combination of fresh vegetables and perfectly seasoned chicken creates a harmonious blend of Mediterranean flavors that's both satisfying and refreshing. A healthy yet indulgent choice that transports your taste buds straight to the coast.",
-            11.99,
+            "Classic Cheesecake",
+            "Delight in our creamy, classic cheesecake with a crumbly graham cracker crust, crafted for the perfect balance of richness and lightness. Each slice is adorned with juicy, halved strawberries and plump grapes, adding a burst of freshness and color. A garnish of vibrant mint leaves elevates the presentation and infuses a subtle aromatic note. This dessert showcases a harmonious blend of smooth, tangy cheesecake, buttery crust, and naturally sweet fruit, making it both a comforting treat and a refined finish to any meal.",
+            4.99,
             "dessert",
             "https://img.freepik.com/free-photo/classic-cheesecake-with-strawberry-cherry-slices_140725-3241.jpg?t=st=1759328161~exp=1759331761~hmac=1aff669dc56d2bb9b3761739acf063c56569672f87344999ee7c3694a0bf7241&w=2000"
         );
@@ -478,4 +495,14 @@ function contactUsPage() {
     formSubmitBtn.value = "Submit";
 
     contactUsForm.appendChild(formSubmitBtn);
+    
+    //adding same transition in home page to contact us page
+    setTimeout(() => {
+    contactUsTitle.classList.add('loaded');
+    contactUsBackground.classList.add('loaded');
+    formTitle.classList.add('loaded');
+    upperFormPart.classList.add('loaded');
+    middleFormPart.classList.add('loaded');
+    downFormPart.classList.add('loaded');
+}, 900);
 }
