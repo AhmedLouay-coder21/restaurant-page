@@ -55,7 +55,7 @@ class Dish {
   }
 }
 
-function appendContent() {
+function homePage() {
     //the restaurant logo
     const img = document.createElement("img");
 
@@ -199,7 +199,7 @@ function appendContent() {
         dish3Element.querySelector('.dish-name')?.classList.add('loaded');
     }, 900);
 }
-appendContent();
+homePage();
 function setupNavigation() {
     const menuButton = document.getElementById("Menu");
     const homeButton = document.getElementById("Home");
@@ -214,7 +214,7 @@ function setupNavigation() {
     homeButton.addEventListener("click", (event) => {
         event.preventDefault();
         content.innerHTML = "";
-        appendContent();
+        homePage();
     });
 
     contactUsButton.addEventListener("click", (event) => {
