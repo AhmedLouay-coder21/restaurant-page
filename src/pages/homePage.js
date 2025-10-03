@@ -1,5 +1,5 @@
-import { dishMaker } from ".";
-import background from './background.jpg';
+import { dishMaker } from "..";
+import background from '../images/background.jpg';
 
 export default function homePage() {
     //the restaurant logo

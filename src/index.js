@@ -1,7 +1,7 @@
 import "./styles.css";
-import { menu, Menu } from "./menu.js";
-import homePage from "./homePage.js";
-import setupNavigation from "./navigationBar.js";
+import { menu, Menu } from "./pages/menu.js";
+import homePage from "./pages/homePage.js";
+import setupNavigation from "./pages/navigationBar.js";
 
 class Dish {
   constructor(name, description, price, category = 'main', image = '', type) {
