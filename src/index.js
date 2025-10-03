@@ -1,10 +1,8 @@
 import "./styles.css";
-import menuPage from "./menu.js";
 import { menu, Menu } from "./menu.js";
-import contactUsPage from "./contactUs.js";
 import homePage from "./homePage.js";
+import setupNavigation from "./navigationBar.js";
 
-const content = document.getElementById("content");
 class Dish {
   constructor(name, description, price, category = 'main', image = '', type) {
     this.name = name;
@@ -55,30 +53,6 @@ class Dish {
   }
 }
 homePage();
-function setupNavigation() {
-    const menuButton = document.getElementById("Menu");
-    const homeButton = document.getElementById("Home");
-    const contactUsButton = document.getElementById("contactUs");
-
-    menuButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        content.innerHTML = "";
-        menuPage();
-    });
-
-    homeButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        content.innerHTML = "";
-        homePage();
-    });
-
-    contactUsButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        content.innerHTML = "";
-        contactUsPage();
-    });
-
-}
 setupNavigation();
 //this function makes dishes and adds it to the menu
 export function dishMaker() {
