@@ -1,5 +1,6 @@
 import menuPage from "./menu.js";
 import contactUsPage from "./contactUs.js";
+import homePage from "./homePage.js";
 export default function setupNavigation() {
     const menuButton = document.getElementById("Menu");
     const homeButton = document.getElementById("Home");
