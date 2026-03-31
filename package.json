@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/AhmedLouay-coder21/restaurant-page#readme",
   "devDependencies": {
+    "baseline-browser-mapping": "^2.10.12",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.4",
     "style-loader": "^4.0.0",
