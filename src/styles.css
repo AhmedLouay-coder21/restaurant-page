@@ -2,7 +2,7 @@ body, html
 {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin: auto;
     background-color: black;
     color: white;
     font-family: 'Courier New', Courier, monospace;
@@ -11,8 +11,6 @@ body, html
 body
 {
     width: 100%;
-    max-width: 100%;
-    min-height: 100vh;
     height: 100%;
 }
 header
@@ -29,7 +27,6 @@ nav
     align-items: center;
     justify-content: center;
     gap: 50px;
-    flex-wrap: wrap;
 }
 #buttons
 {
@@ -37,7 +34,6 @@ nav
     gap: 50px;
     align-content: center;
     justify-content: space-evenly;
-    flex-wrap: wrap;
 }
 button
 {
@@ -68,7 +64,6 @@ hr
 {
     display: flex;
     font-size: larger;
-    flex-wrap: wrap;
 }
 #section1Image , #section2Image , #section3Images
 {
@@ -132,7 +127,7 @@ hr
 }
 #contactUsTitle
 {
-    font-size: clamp(2rem, 8vw, 75px);
+    font-size: 75px;
     margin-top: 10%;
 }
 #about_us_text p
@@ -210,10 +205,8 @@ hr
 }
 .dish-image
 {
-    height: auto;
-    width: min(100%, 650px);
-    min-height: 0;
-    min-width: 0;
+    height: 50%;
+    min-height: 500px;
 }
 #bg , #contactUsBackground
 {
@@ -238,7 +231,7 @@ hr
 {
     display: flex;
     flex-direction: column;
-    width: min(90%, 700px);
+    width: 40%;
     height: 50%;
     min-height: 300px;
     margin-top: 50%;
@@ -264,13 +257,11 @@ input
     background-color: rgb(54, 54, 54);
     border: none;
     padding: 10px;
-    box-sizing: border-box;
 }
 #upperFormPart
 {
     display: flex;
     gap: 50px;
-    flex-wrap: wrap;
 }
 #formName , #formEmail , #formSubject , #formComment
 {
@@ -278,7 +269,6 @@ input
     flex-direction: column;
     gap: 10px;
     border: none;
-    flex: 1 1 220px;
 }
 #comments
 {
@@ -300,8 +290,7 @@ input
 }
 #mainDishesButton , #dessertButton
 {
-    width: auto;
-    min-width: 140px;
+    width: 5%;
     background-color: #131313;
     color: orange;
     margin-top: 1%;
@@ -323,74 +312,72 @@ a
     color: orange;
 }
 
-@media (max-width: 900px)
-{
-    header
-    {
-        justify-content: center;
-        text-align: center;
+@media (max-width: 768px) {
+    header, nav {
+        flex-direction: column;
+        gap: 20px;
     }
-
-    nav, #buttons
-    {
-        gap: 16px;
+    #buttons {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        align-items: center;
     }
-
-    #section1, #section2, #section3
-    {
+    button {
+        width: 80%;
+    }
+    #section1, #section2, #section3 {
         flex-direction: column;
         align-items: center;
         margin-left: 0;
-        gap: 24px;
+        text-align: center;
         padding: 20px;
+        gap: 30px;
     }
-
-    #section1Image, #section2Image, #section3Image
-    {
+    .dish-image {
+        min-width: 100%;
+        min-height: 250px;
         width: 100%;
-        display: flex;
-        justify-content: center;
+        height: auto;
     }
-
-    .dish-image
-    {
-        width: 100%;
-        max-width: 100%;
+    #contactUsForm {
+        width: 90%;
     }
-
-    #dishType
-    {
-        flex-wrap: wrap;
-        gap: 12px;
-        padding: 12px;
+    #upperFormPart {
+        flex-direction: column;
+        gap: 15px;
     }
-
-    #menuDishes
-    {
-        padding: 12px;
-        gap: 16px;
+    #mainDishesButton, #dessertButton {
+        width: 40%;
     }
-}
-
-@media (max-width: 600px)
-{
-    #about_us_text h1, #contactUsTitle h1
-    {
-        font-size: 1.8rem;
+    #contactUsTitle {
+        font-size: 40px;
     }
-
-    #about_us_text p
-    {
-        font-size: 1rem;
+    #about_us {
+        flex-direction: column;
     }
-
-    #contactUsForm
-    {
-        width: 94%;
+    #about_us_text, #contactUsTitle {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        max-width: 95%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: rgba(0, 0, 0, 0.6); /* Optional to ensure contrast */
+        border-radius: 10px;
     }
-
-    #upperFormPart
+    #about_us_text h1 {
+        font-size: 1.8em;
+    }
+    #dishType {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+    }
+    .dish-container
     {
-        gap: 16px;
+        min-width: 100%;
     }
 }
