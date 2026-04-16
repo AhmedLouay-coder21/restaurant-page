@@ -1,4 +1,16 @@
 export default function contactUsPage() {
+    const revealWhenReady = (image) => {
+        const reveal = () => image.classList.add('loaded');
+
+        if (image.complete && image.naturalWidth > 0) {
+            reveal();
+            return;
+        }
+
+        image.addEventListener('load', reveal, { once: true });
+        image.addEventListener('error', reveal, { once: true });
+    };
+
     const contactUsImage = document.createElement("div");
     const contactUs = document.createElement("div");
     const contactUsTitle = document.createElement("h1");
@@ -6,8 +18,8 @@ export default function contactUsPage() {
     const formTitle = document.createElement("h2");
     const contactUsForm = document.createElement("form");
 
-    contactUs.id = "contactUs";
-    contactUsImage.id = "contactUs"; 
+    contactUs.id = "contactUsMain";
+    contactUsImage.id = "contactUsHero";
     contactUsForm.id = "contactUsForm";
     contactUsTitle.id = "contactUsTitle";
 
@@ -22,8 +34,8 @@ export default function contactUsPage() {
 
     // Append title + background
     content.appendChild(contactUs);
-    contactUsImage.appendChild(contactUsTitle);
     contactUsImage.appendChild(contactUsBackground);
+    contactUsImage.appendChild(contactUsTitle);
     contactUs.appendChild(contactUsImage);
 
     // Append form to content
@@ -89,9 +101,10 @@ export default function contactUsPage() {
     contactUsForm.appendChild(formSubmitBtn);
     
     //adding same transition in home page to contact us page
+    revealWhenReady(contactUsBackground);
+
     setTimeout(() => {
     contactUsTitle.classList.add('loaded');
-    contactUsBackground.classList.add('loaded');
     formTitle.classList.add('loaded');
     upperFormPart.classList.add('loaded');
     middleFormPart.classList.add('loaded');

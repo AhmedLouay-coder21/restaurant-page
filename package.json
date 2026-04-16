@@ -4,6 +4,8 @@
   "description": "This project is a restaurant site made to implement some core concepts in javascript: Classes, ES6 Modules, npm and Webpack.,",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
+    "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +22,7 @@
   "devDependencies": {
     "baseline-browser-mapping": "^2.10.12",
     "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.4",
     "style-loader": "^4.0.0",
     "webpack": "^5.101.3",
